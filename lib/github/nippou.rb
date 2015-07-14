@@ -6,7 +6,7 @@ module Github
     def self.list
       user = self.user
       client = Octokit::Client.new(login: user, access_token: self.access_token)
-      events = client.user_events(user)
+      events = client.user_events(user, per_page: 100)
 
       url_to_detail = {}
 
